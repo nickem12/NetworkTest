@@ -54,6 +54,8 @@ switch(message_id)
         xx = buffer_read(buffer, buffer_u16);
         yy = buffer_read(buffer, buffer_u16);
         
+        buffer_seek(send_buffer, buffer_seek_start, 0);     //start the buffer at the start so we dont go over 256 bytes
+        
         buffer_write(send_buffer, buffer_u8, MESSAGE_MOVE);             //1 byte
         buffer_write(send_buffer, buffer_u16, client_id_current);       //2 bytes
         
@@ -67,14 +69,20 @@ switch(message_id)
         
             if(client_id != client_id_current)
             {
-                network_send_raw(
+                network_send_raw(socket_id, send_buffer, 7);    // this 7 is the total amount of bytes being sent
+                
             }
         
         }
         
     break;
 
-}
+    }
+
+    if(buffer_tell(buffer) == buffer_get_size(buffer))
+    {
+        break;
+    }
 
 }
 
