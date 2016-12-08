@@ -36,9 +36,10 @@ clientmap[? string(socket_id)] = l;
 ///server_handle_message(socket_id, buffer);
 
 //this is where things can differ a lot. 
-var socket_id = argument0;
+var 
+socket_id = argument0,
 
-buffer = argument1;
+buffer = argument1,
 
 client_id_current = clientmap[? string(socket_id)].client_id;
 while(true)

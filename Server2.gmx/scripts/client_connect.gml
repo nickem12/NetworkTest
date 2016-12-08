@@ -2,7 +2,7 @@
 ///client_connect(ip, port)
 
 var 
-ip = argument0;
+ip = argument0,
 port = argument1;
 
 socket = network_create_socket(network_socket_tcp);
@@ -49,7 +49,7 @@ switch(message_id)
         if(ds_map_exists(clientmap, string(client)))
         {
             var clientObject = clientmap[? string(client)];
-            clientObect.x = xx;
+            clientObject.x = xx;
             clientObject.y = yy;
         }
         else
@@ -80,7 +80,7 @@ switch(message_id)
 #define client_send_movement
 ///client_send_movement()
 
-buffer_seek(sned_buffer, buffer_seek_start, 0);
+buffer_seek(send_buffer, buffer_seek_start, 0);
 
 buffer_write(send_buffer, buffer_u8, MESSAGE_MOVE);
 
