@@ -3,7 +3,7 @@
 
 var port = argument0;   //ports are like chanels or radio stations
 server = 0;
-server = network_connect_raw(network_socket_tcp, port, 20);  //20 represents max amount of player in server
+server = network_create_server_raw(network_socket_tcp, port, 20);  //20 represents max amount of player in server
 clientmap = ds_map_create();
 client_id_counter = 0;
 
@@ -69,7 +69,7 @@ switch(message_id)
         
             if(client_id != client_id_current)
             {
-                network_send_raw(socket_id, send_buffer, 7);    // this 7 is the total amount of bytes being sent
+                network_send_raw(self.socket_id, other.send_buffer, buffer_tell(other.send_buffer));    // this 7 is the total amount of bytes being sent
                 
             }
         

@@ -5,17 +5,30 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\sPlayer</sprite>
+    <sprite>sprites\sClient</sprite>
+    <sprite>sprites\sButton</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\server_create.gml</script>
+    <script>scripts\client_connect.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\oServer</object>
     <object>objects\oServerClient</object>
+    <object>objects\oClient</object>
+    <object>objects\oOtherClient</object>
+    <object>objects\oPlayer</object>
+    <object>objects\oButton</object>
   </objects>
-  <constants number="1">
+  <rooms name="rooms">
+    <room>rooms\room0</room>
+  </rooms>
+  <constants number="2">
+    <constant name="UPDATE_SPEED">3</constant>
     <constant name="MESSAGE_MOVE">1</constant>
   </constants>
   <help>
